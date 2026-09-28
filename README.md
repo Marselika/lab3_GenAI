@@ -247,18 +247,3 @@ netezimea locală nu poate fi impusă.
 4. **Fără metrică obiectivă.** Pierderile nu indică convergența; evaluarea rămâne
    vizuală și subiectivă.
 5. **Model necondiționat.** Nu se poate cere o cifră anume; ar fi necesar un cGAN.
-
----
-
-## 10. Direcții de îmbunătățire
-
-În ordinea raportului beneficiu/efort:
-
-1. Înlocuirea straturilor `Dense` cu convoluții (DCGAN: `Conv2DTranspose` în G,
-   `Conv2D` cu stride în D)
-2. `BatchNormalization` în Generator
-3. Label smoothing (`y_real = 0.9` în loc de `1.0`) — modificare de o linie, reduce
-   riscul ca D să devină prea încrezător
-4. Wasserstein GAN cu gradient penalty
-5. Variantă condiționată (cGAN), pentru control asupra cifrei generate
-6. Evaluare cantitativă cu FID, în locul inspecției vizuale
